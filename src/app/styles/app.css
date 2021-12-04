@@ -1,0 +1,11 @@
+@import "_fonts.css";
+
+body {
+  line-height: 1.47059;
+  font-weight: 400;
+  font-family: "San Francisco Pro";
+}
+
+a {
+  color: #06c;
+}
