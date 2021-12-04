@@ -1,9 +1,13 @@
 export interface AppState {
   isLoading: boolean;
+  success: string | null;
+  error: string | null;
 }
 
 export enum AppActionTypes {
   SET_LOADING = "app/SET_LOADING",
+  TOAST_SUCCESS = "app/TOAST_SUCCESS",
+  TOAST_FAILURE = "app/TOAST_FAILURE",
 }
 
 export interface SetLoading {
@@ -11,4 +15,14 @@ export interface SetLoading {
   payload: { isLoading: boolean };
 }
 
-export type AppActions = SetLoading;
+export interface ToastSuccess {
+  type: typeof AppActionTypes.TOAST_SUCCESS;
+  payload: { success: string };
+}
+
+export interface ToastFailure {
+  type: typeof AppActionTypes.TOAST_FAILURE;
+  payload: { error: string };
+}
+
+export type AppActions = SetLoading | ToastSuccess | ToastFailure;

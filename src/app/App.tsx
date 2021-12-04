@@ -7,6 +7,7 @@ import { VIUState } from "./types/viu.type";
 
 // components
 import Loader from "./components/Loader";
+import Toast from "./components/Toast";
 
 // routes
 import Routes from "./routes";
@@ -28,6 +29,7 @@ const App: React.FC = () => {
       <>
         <Routes />
         {isLoading && <Loader />}
+        <Toast />
       </>
     </Router>
   );
