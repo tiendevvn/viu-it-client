@@ -34,6 +34,7 @@ export interface UserState {
 
 export enum UserActionTypes {
   SET_USER_DATA = "user/SET_USER_DATA",
+  SIGNUP = "user/SIGNUP",
 }
 
 export interface SetUserData {
@@ -45,4 +46,8 @@ export interface SetUserData {
   };
 }
 
-export type UserActions = SetUserData;
+export interface SignUp {
+  type: typeof UserActionTypes.SIGNUP;
+}
+
+export type UserActions = SetUserData | SignUp;

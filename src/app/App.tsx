@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import "./styles/app.css";
 
 // types
 import { VIUState } from "./types/viu.type";

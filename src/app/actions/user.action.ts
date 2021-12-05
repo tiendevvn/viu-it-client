@@ -1,9 +1,15 @@
 // types
 import { VIUThunk } from "@/app/types/viu.type";
+import { History } from "@/app/types/common.type";
 import { UserActionTypes } from "@/app/types/user.type";
 
 // utils
 import httpRequest from "@/app/utils/httpRequest";
+import { errorHandler } from "@/app/utils/errorHandler";
+import { PATH_NAME } from "@/app/utils/pathName";
+
+// actions
+import { toastSuccess, toastFailure } from "@/app/actions/app.action";
 
 export const setUserData = (): VIUThunk => async dispatch => {
   const token = localStorage.getItem(process.env.REACT_APP_ACCESS_TOKEN || "");
@@ -23,3 +29,34 @@ export const setUserData = (): VIUThunk => async dispatch => {
     });
   }
 };
+
+export const signUp =
+  (
+    payload: {
+      student_id: string;
+      name: string;
+      birthday: string;
+      password: string;
+    },
+    history: History
+  ): VIUThunk =>
+  async dispatch => {
+    try {
+      const { data } = await httpRequest.post("/api/auth/signup", payload, {
+        showSpinner: true,
+      });
+
+      const { message } = data;
+
+      dispatch({
+        type: UserActionTypes.SIGNUP,
+      });
+
+      dispatch(toastSuccess(message));
+
+      history.push(PATH_NAME.SIGNIN);
+    } catch (error) {
+      const message = errorHandler(error);
+      dispatch(toastFailure(message));
+    }
+  };

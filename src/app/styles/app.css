@@ -9,3 +9,7 @@ body {
 a {
   color: #06c;
 }
+
+input[type="date"] {
+  padding-top: 0.05882rem;
+}

@@ -20,6 +20,10 @@ export const userReducer = (
         token: action.payload.token,
         profile: action.payload.profile,
       };
+    case UserActionTypes.SIGNUP:
+      return {
+        ...state,
+      };
 
     default:
       return state;
