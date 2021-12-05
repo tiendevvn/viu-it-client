@@ -35,6 +35,8 @@ export const signUp =
     payload: {
       student_id: string;
       name: string;
+      email: string;
+      phone_number: string;
       birthday: string;
       password: string;
     },
