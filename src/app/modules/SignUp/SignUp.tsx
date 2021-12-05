@@ -18,6 +18,8 @@ const SignUp: React.FC = () => {
   const initialState = {
     student_id: "",
     name: "",
+    email: "",
+    phone_number: "",
     birthday: "",
     gender: "Male",
     password: "",
@@ -28,7 +30,8 @@ const SignUp: React.FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { student_id, name, birthday, gender, password } = userData;
+  const { student_id, name, email, phone_number, birthday, gender, password } =
+    userData;
 
   const onChangeInput = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
@@ -62,6 +65,20 @@ const SignUp: React.FC = () => {
                 type="text"
                 name="name"
                 value={name}
+                onChange={onChangeInput}
+              />
+              <Input
+                label="Email"
+                type="text"
+                name="email"
+                value={email}
+                onChange={onChangeInput}
+              />
+              <Input
+                label="Số điện thoại"
+                type="text"
+                name="phone_number"
+                value={phone_number}
                 onChange={onChangeInput}
               />
               <Input
