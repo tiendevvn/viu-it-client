@@ -9,6 +9,10 @@ export const { ...classes } = style9.create({
     paddingRight: 12,
     paddingLeft: 12,
   },
+  topbarColSearch: {
+    width: "100%",
+    maxWidth: 600,
+  },
   topbarRow: {
     flexDirection: "row",
     alignItems: "center",

@@ -15,7 +15,13 @@ import { classes } from "./styles";
 const Topbar: React.FC = () => {
   return (
     <div className={style9(base.root, classes.topbarContainer)}>
-      <div className={style9(base.root, classes.topbarCol)}>
+      <div
+        className={style9(
+          base.root,
+          classes.topbarCol,
+          classes.topbarColSearch
+        )}
+      >
         <div className={style9(base.root, classes.topbarSearch)}>
           <Search />
         </div>
