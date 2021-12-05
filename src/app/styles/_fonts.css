@@ -1,4 +1,13 @@
 @font-face {
+  font-family: "Billabong";
+  src: local("Billabong"), local("FontsFree-Net-Billabong.ttf"),
+    url("/src/app/assets/fonts/Billabong/FontsFree-Net-Billabong.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "San Francisco Pro";
   src: local("San Francisco Pro Display Light"),
     local("San-Francisco-Pro-Display-Light"),
