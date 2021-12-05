@@ -35,6 +35,7 @@ export interface UserState {
 export enum UserActionTypes {
   SET_USER_DATA = "user/SET_USER_DATA",
   SIGNUP = "user/SIGNUP",
+  SIGNIN = "user/SIGNIN",
 }
 
 export interface SetUserData {
@@ -50,4 +51,13 @@ export interface SignUp {
   type: typeof UserActionTypes.SIGNUP;
 }
 
-export type UserActions = SetUserData | SignUp;
+export interface SignIn {
+  type: typeof UserActionTypes.SIGNIN;
+  payload: {
+    isLogged: boolean;
+    token: string;
+    profile: User;
+  };
+}
+
+export type UserActions = SetUserData | SignUp | SignIn;

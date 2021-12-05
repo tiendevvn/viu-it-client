@@ -62,3 +62,39 @@ export const signUp =
       dispatch(toastFailure(message));
     }
   };
+
+export const signIn =
+  (
+    payload: { student_id: string; password: string },
+    history: History
+  ): VIUThunk =>
+  async dispatch => {
+    try {
+      const { data } = await httpRequest.post("/api/auth/signin", payload, {
+        showSpinner: true,
+      });
+
+      const { token, message, profile } = data;
+
+      dispatch({
+        type: UserActionTypes.SIGNIN,
+        payload: {
+          isLogged: true,
+          token,
+          profile,
+        },
+      });
+
+      dispatch(toastSuccess(message));
+
+      localStorage.setItem(
+        process.env.REACT_APP_ACCESS_TOKEN || "accessToken",
+        data.token
+      );
+
+      history.push(PATH_NAME.HOME);
+    } catch (error) {
+      const message = errorHandler(error);
+      dispatch(toastFailure(message));
+    }
+  };

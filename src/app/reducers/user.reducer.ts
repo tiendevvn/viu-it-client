@@ -14,6 +14,7 @@ export const userReducer = (
 ): UserState => {
   switch (action.type) {
     case UserActionTypes.SET_USER_DATA:
+    case UserActionTypes.SIGNIN:
       return {
         ...state,
         isLogged: action.payload.isLogged,
