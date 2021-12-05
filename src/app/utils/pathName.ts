@@ -5,4 +5,5 @@ export const PATH_NAME = {
   ERROR_404: "/404",
   SIGNUP: "/signup",
   SIGNIN: "/signin",
+  PROFILE: "/profile",
 };

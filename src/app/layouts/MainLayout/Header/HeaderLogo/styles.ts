@@ -60,5 +60,6 @@ export const { ...classes } = style9.create({
     marginLeft: 8,
     marginTop: 5,
     fontFamily: "Billabong",
+    color: "rgba(0,0,0,1.00)",
   },
 });

@@ -52,6 +52,9 @@ export const { ...classes } = style9.create({
     bottom: 0,
   },
   avatarHover: {
+    borderRadius: "9999px",
+    width: "100%",
+    height: "100%",
     boxShadow: "rgb(0 0 0 / 2%) 0px 0px 2px inset",
     position: "absolute",
     top: 0,

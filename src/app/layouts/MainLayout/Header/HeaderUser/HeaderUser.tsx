@@ -17,16 +17,16 @@ const HeaderUser: React.FC = () => {
       <div
         className={style9(base.root, classes.userCenter, classes.userAvatar)}
       >
-        <UserAvatar userType="profile" avatarWidth="80px" avatarHeight="80px" />
+        <UserAvatar onlyProfile avatarWidth="80px" avatarHeight="80px" />
       </div>
       <div className={style9(base.root, classes.userCenter)}>
-        <UserFullname userType="profile" />
+        <UserFullname onlyProfile />
       </div>
       <div className={style9(base.root, classes.userCenter)}>
-        <UserStudentId userType="profile" />
+        <UserStudentId onlyProfile />
       </div>
       <div className={style9(base.root, classes.userCenter)}>
-        <UserShortInfo userType="profile" />
+        <UserShortInfo onlyProfile />
       </div>
     </div>
   );

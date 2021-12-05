@@ -21,6 +21,7 @@ const Error404 = lazy(() => import("@/app/modules/Error404"));
 const SignUp = lazy(() => import("@/app/modules/SignUp"));
 const SignIn = lazy(() => import("@/app/modules/SignIn"));
 const Home = lazy(() => import("@/app/modules/Home"));
+const Profile = lazy(() => import("@/app/modules/Profile"));
 
 export const routesConfig: RouteShape[] = [
   {
@@ -62,7 +63,10 @@ export const routesConfig: RouteShape[] = [
         requireRoles: [USER_ROLE.USER],
       },
       {
-        component: () => <Redirect to={PATH_NAME.ERROR_404} />,
+        exact: true,
+        path: "/:student_id",
+        component: Profile,
+        requireRoles: [USER_ROLE.USER],
       },
     ],
   },

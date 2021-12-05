@@ -25,6 +25,11 @@ export const userReducer = (
       return {
         ...state,
       };
+    case UserActionTypes.GET_USER:
+      return {
+        ...state,
+        user: action.payload.user,
+      };
 
     default:
       return state;

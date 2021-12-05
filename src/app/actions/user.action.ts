@@ -98,3 +98,21 @@ export const signIn =
       dispatch(toastFailure(message));
     }
   };
+
+export const getUser =
+  (student_id: string): VIUThunk =>
+  async dispatch => {
+    try {
+      const { data } = await httpRequest.get(`/api/user/${student_id}`);
+
+      const { user } = data;
+
+      dispatch({
+        type: UserActionTypes.GET_USER,
+        payload: { user },
+      });
+    } catch (error) {
+      const message = errorHandler(error);
+      dispatch(toastFailure(message));
+    }
+  };

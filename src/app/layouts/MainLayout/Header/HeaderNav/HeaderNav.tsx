@@ -6,6 +6,8 @@ import HeaderNavItem from "./HeaderNavItem";
 // components
 import { HomeIcon } from "@/app/components/Icons";
 import { HomeFillIcon } from "@/app/components/Icons";
+import { UserIcon } from "@/app/components/Icons";
+import { UserFillIcon } from "@/app/components/Icons";
 
 // styles
 import { base } from "@/app/styles/baseClasses";
@@ -22,6 +24,13 @@ const navList = [
     icon: <HomeIcon />,
     iconFill: <HomeFillIcon />,
   },
+  {
+    id: 2,
+    name: "Hồ sơ",
+    path: "profile",
+    icon: <UserIcon />,
+    iconFill: <UserFillIcon />,
+  },
 ];
 
 const HeaderNav: React.FC = () => {
@@ -35,7 +44,7 @@ const HeaderNav: React.FC = () => {
             key={navItem.id}
             name={navItem.name}
             path={
-              navItem.name === "Profile"
+              navItem.path === "profile"
                 ? profile?.student_id || ""
                 : navItem.path
             }

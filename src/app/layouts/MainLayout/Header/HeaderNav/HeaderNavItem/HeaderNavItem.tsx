@@ -1,6 +1,10 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
 import style9 from "style9";
+
+// types
+import { VIUState } from "@/app/types/viu.type";
 
 // hooks
 import { useHover } from "@/core/hooks/useHover";
@@ -16,15 +20,22 @@ const HeaderNavItem: React.FC<PropType> = ({
   iconFill,
   history,
 }) => {
+  const { profile, user } = useSelector(userSelector);
   const [hovered, eventHandlers] = useHover();
   const [isActive, setActive] = useState(false);
 
   const pathname = history.location.pathname.slice(1, 5);
 
+  const student_id = history.location.pathname.slice(1);
+
+  const profileActive =
+    user?.student_id.toString() === student_id &&
+    profile?.student_id !== user.student_id;
+
   useEffect(() => {
-    if (pathname === path.slice(0, 4)) setActive(true);
+    if (pathname === path.slice(0, 4) && !profileActive) setActive(true);
     else setActive(false);
-  }, [pathname, path]);
+  }, [pathname, path, profileActive]);
 
   const handleActive = () => setActive(true);
 
@@ -72,5 +83,7 @@ type PropType = RouteComponentProps & {
   icon: ReactNode;
   iconFill: ReactNode;
 };
+
+const userSelector = (state: VIUState) => state.user;
 
 export default withRouter(HeaderNavItem);

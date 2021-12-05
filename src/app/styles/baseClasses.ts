@@ -11,6 +11,7 @@ export const { ...base } = style9.create({
     flexShrink: 0,
     minWidth: 0,
     minHeight: 0,
+    zIndex: 0,
   },
   rootText: {
     display: "inline",
@@ -19,7 +20,6 @@ export const { ...base } = style9.create({
     wordWrap: "break-word",
     fontFamily: "San Francisco Pro",
     fontSize: 14,
-    color: "rgba(0,0,0,1.00)",
     margin: 0,
     padding: 0,
   },

@@ -11,29 +11,24 @@ import { MatchParams } from "@/app/types/common.type";
 import { base } from "@/app/styles/baseClasses";
 import { classes } from "./styles";
 
-const UserStudentId: React.FC<PropType> = ({ onlyProfile, match }) => {
+const UserBio: React.FC<PropType> = ({ onlyProfile, match }) => {
   const { profile, user } = useSelector(userSelector);
 
   const { student_id } = match.params;
 
-  const userStudentId =
-    profile?.student_id.toString() === student_id
-      ? profile.student_id
-      : user
-      ? user.student_id
-      : student_id;
+  const bio =
+    profile?.student_id.toString() === student_id ? profile.bio : user?.bio;
 
   return (
-    <div className={style9(base.root, classes.studentIdContainer)}>
-      <div
-        className={style9(
-          base.rootText,
-          base.rootTextEllipsis,
-          classes.studentIdText
-        )}
-      >
-        @{onlyProfile ? profile?.student_id : userStudentId}
-      </div>
+    <div
+      className={style9(base.rootText, classes.UserInfoBio)}
+      style={{
+        display: "-webkit-box",
+        WebkitLineClamp: 4,
+        WebkitBoxOrient: "vertical",
+      }}
+    >
+      {onlyProfile ? profile?.bio : bio}
     </div>
   );
 };
@@ -44,4 +39,4 @@ type PropType = RouteComponentProps<MatchParams> & {
 
 const userSelector = (state: VIUState) => state.user;
 
-export default withRouter(UserStudentId);
+export default withRouter(UserBio);
