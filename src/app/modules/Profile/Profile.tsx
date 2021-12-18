@@ -20,6 +20,8 @@ import UserAvatar from "@/app/components/User/UserAvatar";
 import UserFullname from "@/app/components/User/UserFullname";
 import UserStudentId from "@/app/components/User/UserStudentId";
 import UserBio from "@/app/components/User/UserBio";
+import UserInfoCommon from "@/app/components/User/UserInfoCommon";
+import UserFollow from "@/app/components/User/UserFollow";
 
 // styles
 import { base } from "@/app/styles/baseClasses";
@@ -77,8 +79,30 @@ const Profile: React.FC<PropType> = ({ match }) => {
                     <div className={style9(base.root, classes.profileInfoBio)}>
                       <UserBio />
                     </div>
-                    <div className={style9(base.root)}>1</div>
-                    <div className={style9(base.root)}>1</div>
+                    <div
+                      className={style9(base.root, classes.profileInfoCommon)}
+                    >
+                      <UserInfoCommon infoCommonType="hometown" />
+                      <UserInfoCommon infoCommonType="location" />
+                    </div>
+                    <div
+                      className={style9(base.root, classes.profileInfoCommon)}
+                    >
+                      <UserInfoCommon infoCommonType="class_name" />
+                      <UserInfoCommon infoCommonType="major" />
+                    </div>
+                    <div
+                      className={style9(base.root, classes.profileInfoCommon)}
+                    >
+                      <UserInfoCommon infoCommonType="website" />
+                      <UserInfoCommon infoCommonType="created_at" />
+                    </div>
+                    <div
+                      className={style9(base.root, classes.profileInfoCommon)}
+                    >
+                      <UserFollow followType="following" />
+                      <UserFollow followType="followers" />
+                    </div>
                   </>
                 )}
               </div>

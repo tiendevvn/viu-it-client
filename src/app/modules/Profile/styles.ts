@@ -45,4 +45,9 @@ export const { ...classes } = style9.create({
     display: "block",
     marginBottom: 12,
   },
+  profileInfoCommon: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginBottom: 10,
+  },
 });
