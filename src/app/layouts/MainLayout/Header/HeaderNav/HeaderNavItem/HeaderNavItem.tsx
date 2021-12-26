@@ -13,6 +13,9 @@ import { useHover } from "@/core/hooks/useHover";
 import { base } from "@/app/styles/baseClasses";
 import { classes } from "./styles";
 
+// utils
+import { PATH_NAME } from "@/app/utils/pathName";
+
 const HeaderNavItem: React.FC<PropType> = ({
   name,
   path,
@@ -39,6 +42,10 @@ const HeaderNavItem: React.FC<PropType> = ({
 
   const handleActive = () => setActive(true);
 
+  const pathnameMatch =
+    path === profile?.student_id &&
+    history.location.pathname === PATH_NAME.EDIT_PROFILE;
+
   return (
     <Link
       className={style9(base.root, classes.navItemLink)}
@@ -51,11 +58,11 @@ const HeaderNavItem: React.FC<PropType> = ({
           className={style9(
             base.root,
             classes.navIcon,
-            isActive && classes.navActive,
+            (isActive || pathnameMatch) && classes.navActive,
             hovered && classes.navHoverCommon
           )}
         >
-          {hovered || isActive ? iconFill : icon}
+          {hovered || isActive || pathnameMatch ? iconFill : icon}
         </div>
         <div
           className={style9(
@@ -63,13 +70,13 @@ const HeaderNavItem: React.FC<PropType> = ({
             base.rootText,
             base.rootTextEllipsis,
             classes.navText,
-            isActive && classes.navActive,
+            (isActive || pathnameMatch) && classes.navActive,
             hovered && classes.navHoverCommon
           )}
         >
           {name}
         </div>
-        {(hovered || isActive) && (
+        {(hovered || isActive || pathnameMatch) && (
           <div className={style9(base.root, classes.navHover)}></div>
         )}
       </div>

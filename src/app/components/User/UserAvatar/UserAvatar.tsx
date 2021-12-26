@@ -15,9 +15,8 @@ import { classes } from "./styles";
 
 const UserAvatar: React.FC<PropType> = ({
   onlyProfile,
-  avatarWidth,
-  avatarHeight,
-  styles,
+  profilePicture,
+  size,
   match,
 }) => {
   const { profile, user } = useSelector(userSelector);
@@ -37,11 +36,30 @@ const UserAvatar: React.FC<PropType> = ({
       ? user.student_id
       : student_id;
 
+  let avatarSize;
+
+  switch (size) {
+    case "small":
+      break;
+    case "medium":
+      break;
+    case "large":
+      avatarSize = classes.avatarLarge;
+      break;
+    case "extra-large":
+      break;
+    case "extra-extra-large":
+      break;
+    case "avatar-user":
+      avatarSize = classes.avatarUser;
+      break;
+
+    default:
+      break;
+  }
+
   return (
-    <div
-      className={style9(base.root, classes.avatarContainer)}
-      style={{ width: avatarWidth, height: avatarHeight, ...styles }}
-    >
+    <div className={style9(base.root, classes.avatarContainer, avatarSize)}>
       <div className={style9(base.root, classes.avatarCover)}>
         <Link
           className={style9(base.root, classes.avatarLink)}
@@ -57,6 +75,8 @@ const UserAvatar: React.FC<PropType> = ({
                       backgroundImage: `url(${
                         onlyProfile
                           ? profile?.profile_picture
+                          : profilePicture
+                          ? profilePicture
                           : profilePictureLink
                       })`,
                     }}
@@ -74,10 +94,14 @@ const UserAvatar: React.FC<PropType> = ({
 
 type PropType = RouteComponentProps<MatchParams> & {
   onlyProfile?: boolean;
-  avatarWidth: string;
-  avatarHeight: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  styles?: any;
+  profilePicture?: string | File;
+  size:
+    | "small"
+    | "medium"
+    | "large"
+    | "extra-large"
+    | "extra-extra-large"
+    | "avatar-user";
 };
 
 const userSelector = (state: VIUState) => state.user;

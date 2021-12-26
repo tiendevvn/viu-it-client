@@ -22,4 +22,8 @@ export const { ...classes } = style9.create({
   iconOpacityMax: {
     opacity: 0.7,
   },
+  iconMedium: {
+    width: 20,
+    height: 20,
+  },
 });

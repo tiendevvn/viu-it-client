@@ -3,6 +3,7 @@ import { AppState, AppActions, AppActionTypes } from "@/app/types/app.type";
 
 const initialState: AppState = {
   isLoading: false,
+  isShowModal: false,
   success: null,
   error: null,
 };
@@ -16,6 +17,11 @@ export const appReducer = (
       return {
         ...state,
         isLoading: action.payload.isLoading,
+      };
+    case AppActionTypes.SET_MODAL:
+      return {
+        ...state,
+        isShowModal: action.payload.isShowModal,
       };
     case AppActionTypes.TOAST_SUCCESS:
       return {

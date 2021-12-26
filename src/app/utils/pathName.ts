@@ -6,4 +6,5 @@ export const PATH_NAME = {
   SIGNUP: "/signup",
   SIGNIN: "/signin",
   PROFILE: "/profile",
+  EDIT_PROFILE: "/settings/profile",
 };

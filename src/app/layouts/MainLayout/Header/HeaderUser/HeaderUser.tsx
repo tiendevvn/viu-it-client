@@ -17,7 +17,7 @@ const HeaderUser: React.FC = () => {
       <div
         className={style9(base.root, classes.userCenter, classes.userAvatar)}
       >
-        <UserAvatar onlyProfile avatarWidth="80px" avatarHeight="80px" />
+        <UserAvatar onlyProfile size="large" />
       </div>
       <div className={style9(base.root, classes.userCenter)}>
         <UserFullname onlyProfile />

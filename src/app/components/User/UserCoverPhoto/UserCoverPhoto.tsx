@@ -13,7 +13,11 @@ import { MatchParams } from "@/app/types/common.type";
 import { base } from "@/app/styles/baseClasses";
 import { classes } from "./styles";
 
-const UserCoverPhoto: React.FC<PropType> = ({ onlyProfile, match }) => {
+const UserCoverPhoto: React.FC<PropType> = ({
+  onlyProfile,
+  coverPhoto,
+  match,
+}) => {
   const { profile, user } = useSelector(userSelector);
 
   const { student_id } = match.params;
@@ -39,7 +43,11 @@ const UserCoverPhoto: React.FC<PropType> = ({ onlyProfile, match }) => {
               className={style9(classes.coverPhoto)}
               style={{
                 backgroundImage: `url(${
-                  onlyProfile ? profile?.cover_photo : coverPhotoLink
+                  onlyProfile
+                    ? profile?.cover_photo
+                    : coverPhoto
+                    ? coverPhoto
+                    : coverPhotoLink
                 })`,
               }}
             ></div>
@@ -52,6 +60,7 @@ const UserCoverPhoto: React.FC<PropType> = ({ onlyProfile, match }) => {
 
 type PropType = RouteComponentProps<MatchParams> & {
   onlyProfile?: boolean;
+  coverPhoto?: string | File;
 };
 
 const userSelector = (state: VIUState) => state.user;

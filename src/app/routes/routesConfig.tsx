@@ -68,6 +68,12 @@ export const routesConfig: RouteShape[] = [
         component: Profile,
         requireRoles: [USER_ROLE.USER],
       },
+      {
+        exact: true,
+        path: PATH_NAME.EDIT_PROFILE,
+        component: Profile,
+        requireRoles: [USER_ROLE.USER],
+      },
     ],
   },
 ];

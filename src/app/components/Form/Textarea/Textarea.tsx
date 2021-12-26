@@ -5,56 +5,69 @@ import style9 from "style9";
 import { base } from "@/app/styles/baseClasses";
 import { classes } from "./styles";
 
-const Input: React.FC<PropType> = ({
+const Textarea: React.FC<PropType> = ({
   round,
+  maxLength,
   label,
-  type,
   name,
   value,
   onChange,
 }) => {
   const [isFocus, setFocus] = useState(false);
 
+  const [wordCount, setWordCount] = useState(value);
+
   const onFocus = () => setFocus(true);
 
   const onBlur = () => setFocus(false);
 
-  let inputRound;
+  let textareaRound;
 
   switch (round) {
     case "small":
-      inputRound = classes.inputRoundSmall;
+      textareaRound = classes.textareaRoundSmall;
       break;
     case "medium":
-      inputRound = classes.inputRoundMedium;
+      textareaRound = classes.textareaRoundMedium;
       break;
     case "large":
-      inputRound = classes.inputRoundLarge;
+      textareaRound = classes.textareaRoundLarge;
       break;
 
     default:
       break;
   }
-
   return (
     <div className={style9(base.root)}>
-      <input
-        type={type}
+      <textarea
         id={name}
         name={name}
         value={value}
-        onChange={onChange}
+        maxLength={maxLength || 160}
+        onChange={e => {
+          onChange(e);
+          setWordCount(e.currentTarget.value);
+        }}
         onFocus={onFocus}
         onBlur={onBlur}
         autoComplete="off"
-        className={style9(classes.input, inputRound)}
+        className={style9(classes.textarea, textareaRound)}
       />
+      <div
+        className={style9(
+          base.rootText,
+          base.rootTextEllipsis,
+          classes.wordCount
+        )}
+      >
+        {wordCount?.length} / 160
+      </div>
       <label
         htmlFor={name}
         className={style9(
           base.root,
           classes.label,
-          (isFocus || value.length !== 0 || type === "date") && classes.focused
+          (isFocus || value.length !== 0) && classes.focused
         )}
       >
         {label}
@@ -65,11 +78,11 @@ const Input: React.FC<PropType> = ({
 
 type PropType = {
   round: "small" | "medium" | "large";
+  maxLength?: number;
   label: string;
-  type?: string;
   name: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
-export default Input;
+export default Textarea;

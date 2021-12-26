@@ -1,23 +1,24 @@
 import style9 from "style9";
 
 export const { ...classes } = style9.create({
-  input: {
+  textarea: {
     fontSize: 17,
     lineHeight: 1.23536,
     fontWeight: 400,
     letterSpacing: "-.022em",
     fontFamily: "San Francisco Pro",
     width: "100%",
-    height: "3.29412rem",
+    height: 96,
     borderWidth: "1px",
     borderStyle: "solid",
     borderColor: "#d2d2d7",
     boxSizing: "border-box",
     marginBottom: "1rem",
-    padding: "1.05882rem .94118rem 0",
+    padding: "1.5882rem .94118rem 0",
     color: "#1d1d1f",
     backgroundColor: "hsla(0,0%,100%,.8)",
     textOverflow: "ellipsis",
+    resize: "none",
 
     ":focus": {
       borderColor: "#0071e3",
@@ -42,6 +43,7 @@ export const { ...classes } = style9.create({
     letterSpacing: "-.022em",
     fontFamily: "San Francisco Pro",
     color: "#86868b",
+    backgroundColor: "#fff",
   },
   focused: {
     fontSize: 13,
@@ -49,16 +51,25 @@ export const { ...classes } = style9.create({
     fontWeight: 400,
     letterSpacing: "-.01em",
     fontFamily: "San Francisco Pro",
-    top: ".58824rem",
+    top: 1,
+    paddingTop: ".48824rem",
     color: "#6e6e73",
   },
-  inputRoundSmall: {
+  wordCount: {
+    position: "absolute",
+    top: 9,
+    right: 20,
+    zIndex: 20,
+    fontSize: 13,
+    color: "#6e6e73",
+  },
+  textareaRoundSmall: {
     borderRadius: "4px",
   },
-  inputRoundMedium: {
+  textareaRoundMedium: {
     borderRadius: "8px",
   },
-  inputRoundLarge: {
+  textareaRoundLarge: {
     borderRadius: "12px",
   },
 });

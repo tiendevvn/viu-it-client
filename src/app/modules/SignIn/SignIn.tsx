@@ -52,6 +52,7 @@ const SignIn: React.FC = () => {
                 name="student_id"
                 value={student_id}
                 onChange={onChangeInput}
+                round="large"
               />
               <Input
                 label="Mật khẩu"
@@ -59,6 +60,7 @@ const SignIn: React.FC = () => {
                 name="password"
                 value={password}
                 onChange={onChangeInput}
+                round="large"
               />
             </div>
             <div className={style9(base.root, form.formSubmit)}>

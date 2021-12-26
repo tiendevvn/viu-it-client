@@ -66,4 +66,21 @@ export const { ...classes } = style9.create({
       backgroundColor: "rgba(26,26,26,0.15)",
     },
   },
+  avatarSmall: {
+    width: 48,
+    height: 48,
+  },
+  avatarMedium: {},
+  avatarLarge: {
+    width: 80,
+    height: 80,
+  },
+  avatarExtraLarge: {},
+  avatarExtraExtraLarge: {},
+  avatarUser: {
+    width: "25%",
+    maxWidth: "8rem",
+    marginTop: "-14%",
+    marginLeft: -4,
+  },
 });

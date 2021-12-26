@@ -8,16 +8,24 @@ import { VIUState } from "@/app/types/viu.type";
 import { MatchParams } from "@/app/types/common.type";
 
 // components
-import ButtonBack from "@/app/components/Button/ButtonBack";
+import ButtonIcon from "@/app/components/Button/ButtonIcon";
 
 // styles
 import { base } from "@/app/styles/baseClasses";
+import { icon } from "@/app/styles/iconClasses";
 import { classes } from "./styles";
 
-const Head: React.FC<PropType> = ({ headline, buttonBack = "true", match }) => {
+const Head: React.FC<PropType> = ({
+  headline,
+  buttonBack = "true",
+  match,
+  history,
+}) => {
   const { profile, user } = useSelector(userSelector);
 
   const { student_id } = match.params;
+
+  const handleGoBack = () => history.goBack();
 
   return (
     <div className={style9(base.root, classes.headContainer)}>
@@ -38,7 +46,16 @@ const Head: React.FC<PropType> = ({ headline, buttonBack = "true", match }) => {
                   classes.headHeight
                 )}
               >
-                {buttonBack === "true" && <ButtonBack />}
+                {buttonBack === "true" && (
+                  <div className={style9(base.root, icon.iconContainer)}>
+                    <ButtonIcon
+                      type="primary-viu"
+                      icon="back"
+                      size="medium"
+                      onClick={handleGoBack}
+                    />
+                  </div>
+                )}
                 <div className={style9(base.root, classes.headContent)}>
                   <div className={style9(base.root, classes.headContentInner)}>
                     {user ? (

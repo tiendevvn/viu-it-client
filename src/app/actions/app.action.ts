@@ -11,6 +11,15 @@ export const setLoading =
     });
   };
 
+export const setShowModal =
+  (isShowModal: boolean): VIUThunk =>
+  async dispatch => {
+    dispatch({
+      type: AppActionTypes.SET_MODAL,
+      payload: { isShowModal },
+    });
+  };
+
 export const toastSuccess =
   (message: string | null): VIUThunk =>
   async dispatch => {

@@ -59,6 +59,7 @@ const SignUp: React.FC = () => {
                 name="student_id"
                 value={student_id}
                 onChange={onChangeInput}
+                round="large"
               />
               <Input
                 label="Tên"
@@ -66,6 +67,7 @@ const SignUp: React.FC = () => {
                 name="name"
                 value={name}
                 onChange={onChangeInput}
+                round="large"
               />
               <Input
                 label="Email"
@@ -73,6 +75,7 @@ const SignUp: React.FC = () => {
                 name="email"
                 value={email}
                 onChange={onChangeInput}
+                round="large"
               />
               <Input
                 label="Số điện thoại"
@@ -80,6 +83,7 @@ const SignUp: React.FC = () => {
                 name="phone_number"
                 value={phone_number}
                 onChange={onChangeInput}
+                round="large"
               />
               <Input
                 label=""
@@ -87,6 +91,7 @@ const SignUp: React.FC = () => {
                 name="birthday"
                 value={birthday}
                 onChange={onChangeInput}
+                round="large"
               />
               <Input
                 label="Mật khẩu"
@@ -94,6 +99,7 @@ const SignUp: React.FC = () => {
                 name="password"
                 value={password}
                 onChange={onChangeInput}
+                round="large"
               />
               <div className={style9(base.root, form.formRadio)}>
                 <div className={style9(base.root, form.formRadioItem)}>
